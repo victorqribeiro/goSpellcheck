@@ -1,6 +1,6 @@
 # goSpellcheck
 
-A terrbile spell checker written in Go.
+A terrible spell checker written in Go.
 
 # About
 
