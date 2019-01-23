@@ -65,7 +65,7 @@ func compare(word string, dic []string) []string {
 func main(){
 	
 	if len(os.Args) < 2 {
-		f.Println("Erro")
+		f.Println("Error")
 		os.Exit(1)
 	}
 
