@@ -12,6 +12,14 @@ After that, I went to (Lists of common misspellings/For machines)[https://en.wik
 
 It was a nice little project I did just so I don't get too rust while I'm on college vacation.
 
+# Hot to use
+
+Just call the the *goSpellcheck.go* file passing a word as parameter.
+
+```
+go run goSpellcheck.go word
+```
+
 # Score
 
 The spell checker got 1185 from 4278 words, around 27,7%.
