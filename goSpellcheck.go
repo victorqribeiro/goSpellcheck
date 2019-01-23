@@ -28,15 +28,7 @@ func distance(wordA string, wordB string) uint {
 			dist += 1
 		}
 	}
-<<<<<<< HEAD
-	dist += uint(len(word_max) - len(word_min))
-=======
-	if len(wordMin) != len(wordMax) {
-		for i := 0; i < (len(wordMax) - len(wordMin)); i++ {
-			dist += 1
-		}
-	}
->>>>>>> 2d0a3d75afb0aba9cf0613293dbeadfb00cca929
+	dist += uint(len(wordMax) - len(wordMin))
 	return dist
 }
 
@@ -56,13 +48,8 @@ func compare(word string, dic []string) []string {
 		for i := 0; i < len(dic); i++ {
 			d := distance(word,dic[i])
 			for j := 0; j < 3; j++ {
-<<<<<<< HEAD
-				if d < min_distances[j] {
-					min_distances[j] = d
-=======
-				if d < minDistances[j] && !(inArray(dic[i],sug)) {
+				if d < minDistances[j] {
 					minDistances[j] = d
->>>>>>> 2d0a3d75afb0aba9cf0613293dbeadfb00cca929
 					sug[j] = dic[i]
 					break
 				}
