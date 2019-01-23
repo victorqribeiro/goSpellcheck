@@ -1,13 +1,13 @@
 package main
 
 import (
-	"os"
 	f "fmt"
 	io "io/ioutil"
+	"os"
 	s "strings"
 )
 
-func read_dic(file string) []string {
+func readDic(file string) []string {
 	b, err := io.ReadFile(file)
 	if err != nil {
 		f.Println(err)
@@ -15,20 +15,28 @@ func read_dic(file string) []string {
 	return s.Fields(string(b))
 }
 
-func distance(word_a string, word_b string) uint {
-	word_min := word_a
-	word_max := word_b
-	if( len(word_a) > len(word_b) ){
-		word_min = word_b
-		word_max = word_a
+func distance(wordA string, wordB string) uint {
+	wordMin := wordA
+	wordMax := wordB
+	if len(wordA) > len(wordB) {
+		wordMin = wordB
+		wordMax = wordA
 	}
 	var dist uint = 0
-	for i := 0; i < len(word_min); i++ {
-		if word_min[i] != word_max[i] {
+	for i := 0; i < len(wordMin); i++ {
+		if wordMin[i] != wordMax[i] {
 			dist += 1
 		}
 	}
+<<<<<<< HEAD
 	dist += uint(len(word_max) - len(word_min))
+=======
+	if len(wordMin) != len(wordMax) {
+		for i := 0; i < (len(wordMax) - len(wordMin)); i++ {
+			dist += 1
+		}
+	}
+>>>>>>> 2d0a3d75afb0aba9cf0613293dbeadfb00cca929
 	return dist
 }
 
@@ -43,13 +51,18 @@ func inArray(a string, list []string) bool {
 
 func compare(word string, dic []string) []string {
 	sug := []string{"", "", ""}
-	min_distances := [3]uint{^uint(0), ^uint(0), ^uint(0)}
+	minDistances := [3]uint{^uint(0), ^uint(0), ^uint(0)}
 	if !(inArray(word,dic)) {
 		for i := 0; i < len(dic); i++ {
 			d := distance(word,dic[i])
 			for j := 0; j < 3; j++ {
+<<<<<<< HEAD
 				if d < min_distances[j] {
 					min_distances[j] = d
+=======
+				if d < minDistances[j] && !(inArray(dic[i],sug)) {
+					minDistances[j] = d
+>>>>>>> 2d0a3d75afb0aba9cf0613293dbeadfb00cca929
 					sug[j] = dic[i]
 					break
 				}
@@ -62,13 +75,13 @@ func compare(word string, dic []string) []string {
 func main(){
 	
 	if len(os.Args) < 2 {
-		f.Println("Erro")
+		f.Println("Error")
 		os.Exit(1)
 	}
 
 	word := string( os.Args[1] )
 	// dictionary from https://github.com/dwyl/english-words/blob/master/words.txt
-	dic := read_dic("words.txt")
+	dic := readDic("words.txt")
 	result := compare(word,dic)
 
 	if len(result[0]) > 0 {
@@ -76,6 +89,4 @@ func main(){
 	} else {
 		f.Println("no errors")
 	}
-
-	
 }
