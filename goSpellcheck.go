@@ -1,9 +1,9 @@
 package main
 
 import (
-	"os"
 	f "fmt"
 	io "io/ioutil"
+	"os"
 	s "strings"
 )
 
@@ -79,6 +79,4 @@ func main(){
 	} else {
 		f.Println("no errors")
 	}
-
-	
 }
