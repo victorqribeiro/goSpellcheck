@@ -17,8 +17,8 @@ while read line
       then
       count=$((count+1))
       break
- 	  fi
- 	done
+    fi
+  done
  done < data.txt
 
 echo "got $count from $total"
